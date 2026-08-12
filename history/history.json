@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-08-12T23:39:32.000Z",
+  "latest": {
+    "dataThrough": "2026-08-10",
+    "label": "Aug 10, 2026",
+    "url": "https://avani-media.github.io/Report-Scale-Computing/"
+  },
+  "reports": [
+    {
+      "dataThrough": "2026-08-10",
+      "label": "Aug 10, 2026",
+      "path": "history/2026-08-10/index.html",
+      "url": "https://avani-media.github.io/Report-Scale-Computing/history/2026-08-10/",
+      "publishedAt": "2026-08-12T23:39:32.000Z",
+      "title": "Scale Computing Unified Campaign Intelligence Report"
+    }
+  ]
+}
