@@ -2833,4 +2833,150 @@ html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(135deg,#e9e
   .ref-brandbar>.report-history-trigger{min-height:32px!important;padding:6px 9px!important}
 }
 @media print{.ref-hero-inner{padding-right:18px!important}}
+</style><style id="v128-data-viz-reliability">
+/* v128 — primary data marks must never depend on animation / IntersectionObserver state. */
+/* Ranked/distribution bars: keep the real colored fill visible at all times. */
+.colorful-bars .track>i,
+.track>i,
+.track>i.is-animated{
+  display:block!important;
+  opacity:1!important;
+  transform:scaleX(1)!important;
+  animation:none!important;
+  transition:none!important;
+  will-change:auto!important;
+}
+.colorful-bars .track>i{
+  background:linear-gradient(90deg,var(--bar-a,#2f6fe0),var(--bar-b,#20b8d8))!important;
+}
+/* Line charts: the main line, area, points and value labels are data, not optional animation. */
+.modern-line-chart,
+.modern-line-chart svg,
+.modern-line-chart .chart-line-main{
+  opacity:1!important;
+  visibility:visible!important;
+}
+.modern-line-chart .chart-line-main{
+  stroke-dashoffset:0!important;
+  transition:none!important;
+}
+.modern-line-chart svg path[fill^="url"]{
+  opacity:1!important;
+  transform:none!important;
+  animation:none!important;
+}
+.modern-line-chart svg circle,
+.modern-line-chart .chart-value{
+  opacity:1!important;
+  transform:none!important;
+  animation:none!important;
+}
+/* Donut rings stay fully rendered even if their entrance observer never fires. */
+.donut-ring::before,
+.donut-ring.is-animated::before{
+  opacity:1!important;
+  visibility:visible!important;
+}
+/* Paid performance paths are primary charts: keep every stage/metric visible; retain only decorative shimmer. */
+#named .balanced-paid-card .paid-funnel-heading,
+#core .balanced-paid-card .paid-funnel-heading,
+#named .balanced-paid-card .paid-funnel-stage,
+#core .balanced-paid-card .paid-funnel-stage,
+#named .balanced-paid-card .paid-funnel-metric,
+#core .balanced-paid-card .paid-funnel-metric,
+#named .balanced-paid-card .paid-funnel-caption,
+#core .balanced-paid-card .paid-funnel-caption{
+  opacity:1!important;
+  transform:none!important;
+  animation:none!important;
+  visibility:visible!important;
+}
+/* If a hidden client tab missed the section reveal observer, activating it must still show all content. */
+.app-panel-v18.active.reveal{
+  opacity:1!important;
+  transform:none!important;
+  visibility:visible!important;
+}
+@media print{
+  .track>i,
+  .modern-line-chart svg path[fill^="url"],
+  .modern-line-chart svg circle,
+  .modern-line-chart .chart-value,
+  .modern-line-chart .chart-line-main,
+  .donut-ring::before{
+    opacity:1!important;
+    transform:none!important;
+    animation:none!important;
+    visibility:visible!important;
+  }
+}
+</style><style id="v129-zoom-stable-viz">
+/* v129 — make primary data marks resilient to browser zoom/repaint changes. */
+.track{
+  position:relative!important;
+  overflow:hidden!important;
+  isolation:isolate!important;
+}
+.track>i,
+.track>i.is-animated,
+.colorful-bars .track>i{
+  position:relative!important;
+  z-index:1!important;
+  display:block!important;
+  height:100%!important;
+  min-width:2px!important;
+  opacity:1!important;
+  visibility:visible!important;
+  transform:none!important;
+  animation:none!important;
+  transition:none!important;
+  will-change:auto!important;
+  backface-visibility:visible!important;
+  background-color:var(--bar-a,#2f6fe0)!important;
+  background-image:linear-gradient(90deg,var(--bar-a,#2f6fe0),var(--bar-b,#20b8d8))!important;
+  background-repeat:no-repeat!important;
+  background-size:100% 100%!important;
+}
+.modern-line-chart svg{
+  overflow:visible!important;
+  transform:none!important;
+}
+.modern-line-chart svg path,
+.modern-line-chart svg line,
+.modern-line-chart svg polyline,
+.modern-line-chart svg circle{
+  visibility:visible!important;
+  backface-visibility:visible!important;
+}
+.modern-line-chart .chart-line-main{
+  opacity:1!important;
+  stroke-dasharray:none!important;
+  stroke-dashoffset:0!important;
+  vector-effect:non-scaling-stroke;
+  shape-rendering:geometricPrecision;
+}
+.modern-line-chart svg circle{
+  opacity:1!important;
+  transform:none!important;
+}
+.donut-ring,
+.donut-ring::before{
+  visibility:visible!important;
+  opacity:1!important;
+  backface-visibility:visible!important;
+}
+#named .balanced-paid-card .paid-funnel-stage,
+#core .balanced-paid-card .paid-funnel-stage{
+  opacity:1!important;
+  visibility:visible!important;
+  transform:none!important;
+}
+@media (min-resolution:1.01dppx){
+  .track>i{outline:1px solid transparent!important}
+}
+@media print{
+  .track>i,.modern-line-chart svg path,.modern-line-chart svg circle,.donut-ring,.donut-ring::before{
+    opacity:1!important;visibility:visible!important;transform:none!important;animation:none!important;
+  }
+}
 </style></body></html>
